@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kai-ingress
+  annotations:
+    kubernetes.io/ingress.class: nginx
+spec:
+  rules:
+    - host: test.kaiconnection.com
+      http:
+        paths:
+          - backend:
+              serviceName: kai-web-cluster-ip-service
+              servicePort: 80

@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: kai-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: kai-web
+  template:
+    metadata:
+      labels:
+        component: kai-web
+    spec:
+      containers:
+        - name: web-app
+          image: mejiandres/kai-web:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80
